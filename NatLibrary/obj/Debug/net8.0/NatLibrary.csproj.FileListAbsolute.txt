@@ -1,0 +1,11 @@
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\bin\Debug\net8.0\NatLibrary.deps.json
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\bin\Debug\net8.0\NatLibrary.dll
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\bin\Debug\net8.0\NatLibrary.pdb
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\NatLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\NatLibrary.AssemblyInfoInputs.cache
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\NatLibrary.AssemblyInfo.cs
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\NatLibrary.csproj.CoreCompileInputs.cache
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\NatLibrary.dll
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\refint\NatLibrary.dll
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\NatLibrary.pdb
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatLibrary\obj\Debug\net8.0\ref\NatLibrary.dll

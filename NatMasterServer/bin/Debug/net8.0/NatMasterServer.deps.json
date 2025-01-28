@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "NatMasterServer/1.0.0": {
+        "dependencies": {
+          "NatLibrary": "1.0.0"
+        },
+        "runtime": {
+          "NatMasterServer.dll": {}
+        }
+      },
+      "NatLibrary/1.0.0": {
+        "runtime": {
+          "NatLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NatMasterServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NatLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
