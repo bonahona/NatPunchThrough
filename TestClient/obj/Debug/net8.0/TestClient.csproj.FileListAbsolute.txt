@@ -16,3 +16,4 @@ C:\Users\bona.fyrvall\source\repos\NatMasterServer\TestClient\bin\Debug\net8.0\N
 C:\Users\bona.fyrvall\source\repos\NatMasterServer\TestClient\bin\Debug\net8.0\NatLibrary.pdb
 C:\Users\bona.fyrvall\source\repos\NatMasterServer\TestClient\obj\Debug\net8.0\TestClient.csproj.AssemblyReference.cache
 C:\Users\bona.fyrvall\source\repos\NatMasterServer\TestClient\obj\Debug\net8.0\TestClient.csproj.CopyComplete
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\TestClient\obj\Debug\net8.0\TestClient.sourcelink.json

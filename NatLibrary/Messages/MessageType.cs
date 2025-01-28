@@ -4,6 +4,9 @@
     {
         Invalid = 0,
         RegisterHost = 1,
-        RegisterClient = 2
+        RegisterClient = 2,
+        HostConnectToClient = 3,
+        ClientConnectToHost = 4,
+        Connected = 5
     }
 }

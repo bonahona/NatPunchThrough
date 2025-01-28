@@ -2,34 +2,41 @@
 using System.Net;
 using TestClient.Client;
 
-namespace NatMasterServer
-{
-    internal class Program
-    {
+namespace TestClient {
+    internal class Program {
         private UdpClientWrapper _udpClient;
-        private IPEndPoint _serverEndpoint;
+        private IPEndPoint _masterServerEndpoint;
 
-        static void Main(string[] args)
-        {
-            new Program();
+        static async Task Main(string[] args) {
+            await new Program().Run();
         }
 
-        public Program()
-        {
+        public Program() {
             _udpClient = new UdpClientWrapper();
-            _serverEndpoint = new IPEndPoint(IPAddress.Loopback, 7000);
+            _masterServerEndpoint = new IPEndPoint(IPAddress.Loopback, 7000);
+        }
 
-            Console.WriteLine("Start test server");
+        public async Task Run() { 
+            Console.WriteLine("Start test client");
+            await Task.WhenAll(
+                _udpClient.Listen(),
+                ClientManualInput()
+            );
+        }
 
-            var serverId = Random.Shared.Next(1000);
-            while (true)
-            {
-                Console.WriteLine("Sending package....");
-                var message = new NatClientMessage(MessageType.RegisterHost, serverId, _serverEndpoint);
-                var sentCount = _udpClient.SendData(message);
-                Console.WriteLine($"Sent {sentCount} bytes");
+        private async Task ClientManualInput() {
+            while (true) {
+                try {
+                    Console.WriteLine("Enter server id:");
+                    var serverId = int.Parse(Console.ReadLine()!);
+                    Console.WriteLine("Sending package....");
+                    var message = new NatClientMessage(MessageType.RegisterClient, serverId, _masterServerEndpoint);
+                    var sentCount = await _udpClient.SendData(message);
+                    Console.WriteLine($"Sent {sentCount} bytes");
 
-                Thread.Sleep(1000);
+                } catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }

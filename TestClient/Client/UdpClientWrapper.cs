@@ -7,19 +7,53 @@ namespace TestClient.Client
     public class UdpClientWrapper
     {
         private UdpClient _udpClient;
-        private IPEndPoint _serverEndpoint;
+        private IPEndPoint _masterServerEndpoint;
+
+        private IPEndPoint _hostEndpoint;
 
         public UdpClientWrapper()
         {
             _udpClient = new UdpClient();
-            _serverEndpoint = new IPEndPoint(IPAddress.Loopback, 7000);
+            _masterServerEndpoint = new IPEndPoint(IPAddress.Loopback, 7000);
         }
 
-        public int SendData(NatClientMessage message)
+        public async Task<int> SendData(NatClientMessage message)
         {
             var byteBuffer = message.GetBytes();
-            Console.WriteLine(Convert.ToHexString(byteBuffer.ToArray()));
-            return _udpClient.Send(byteBuffer, byteBuffer.Length, _serverEndpoint);
+            return await _udpClient.SendAsync(byteBuffer, byteBuffer.Length, _masterServerEndpoint);
+        }
+
+        public async Task Listen() {
+            await Console.Out.WriteLineAsync("Client avaiting endpoint...");
+
+            while (_udpClient.Client.LocalEndPoint == null) {
+                await Task.Delay(1000);
+            }
+
+            await Console.Out.WriteLineAsync("Start client listen");
+            while (true) {
+                try {
+                    var result = await _udpClient.ReceiveAsync();
+                    _hostEndpoint = result.RemoteEndPoint as IPEndPoint;
+
+                    var message = new NatClientMessage(result.Buffer, result.RemoteEndPoint);
+                    HandleMessage(message);
+                } catch (Exception ex) {
+                    await Console.Out.WriteLineAsync(ex.Message);
+                }
+            }
+        }
+
+        private void HandleMessage(NatClientMessage message) {
+            if (message.MessageType == MessageType.ClientConnectToHost) {
+
+            } else if (message.MessageType == MessageType.Connected) {
+
+            } else {
+                Console.WriteLine("Invalid message");
+            }
+
+            Console.WriteLine(message);
         }
     }
 }

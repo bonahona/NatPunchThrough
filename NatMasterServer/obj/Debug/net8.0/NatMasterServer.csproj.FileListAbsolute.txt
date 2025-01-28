@@ -16,3 +16,4 @@ C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatMasterServer\bin\Debug\net
 C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatMasterServer\bin\Debug\net8.0\NatLibrary.pdb
 C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatMasterServer\obj\Debug\net8.0\NatMasterServer.csproj.AssemblyReference.cache
 C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatMasterServer\obj\Debug\net8.0\NatMasterServer.csproj.CopyComplete
+C:\Users\bona.fyrvall\source\repos\NatMasterServer\NatMasterServer\obj\Debug\net8.0\NatMasterServer.sourcelink.json
