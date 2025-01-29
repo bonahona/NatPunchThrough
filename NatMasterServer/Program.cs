@@ -4,15 +4,15 @@ namespace NatMasterServer
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            new Program();
+            await new Program().Run();
         }
 
-        public Program()
+        public async Task Run()
         {
             Console.WriteLine("Booting....");
-            new UdpListener().Listen();
+            await new MasterServer().Run();
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NatMasterServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7736499a4eb916132762f0ca306a936e905c4e3c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+583347a234b7adf9e79efd81ca73e1cb9e3c3ab6")]
 [assembly: System.Reflection.AssemblyProductAttribute("NatMasterServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NatMasterServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
