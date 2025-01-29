@@ -13,7 +13,7 @@ namespace NatMasterServer.Server {
 
         public MasterServer() {
             _listenEndpoint = new IPEndPoint(IPAddress.Any, 7000);
-            _client = new NatClient(this);
+            _client = new NatClient(_listenEndpoint, this);
         }
 
         public async Task Run() {
@@ -27,14 +27,13 @@ namespace NatMasterServer.Server {
             udpClient.Send(byteBuffer, byteBuffer.Length, recieverEndpoint);
         }
 
-        public Task HandleMessage(NatClient client, NatClientMessage message) {
+        public async Task HandleMessage(NatClient client, NatClientMessage message) {
             if (message.MessageType == MessageType.RegisterHost) {
-                return HandleHostMessage(message);
+                await HandleHostMessage(message);
             } else if (message.MessageType == MessageType.RegisterClient) {
-                return HandleClientMessage(message);
+                await HandleClientMessage(message);
             } else {
-                Console.WriteLine("Unknown message type");
-                return Task.CompletedTask;
+                await Console.Out.WriteLineAsync("Unknown message type");
             }
         }
 
@@ -45,11 +44,11 @@ namespace NatMasterServer.Server {
         private async Task HandleClientMessage(NatClientMessage message) {
             var server = await _storage.GetServerHost(message.ServerId);
 
-            Console.WriteLine($"Client {message.NatEndpoint} asking for server {message.ServerId}");
+            await Console.Out.WriteLineAsync($"Client {message.NatEndpoint} asking for server {message.ServerId}");
 
             var messageToHost = new NatClientMessage(MessageType.HostConnectToClient, server.ServerId, message.NatEndpoint);
 
-            Console.WriteLine($"Sending Client info {message.NatEndpoint} to {server.NatEndpoint}");
+            await Console.Out.WriteLineAsync($"Sending Client info {message.NatEndpoint} to {server.NatEndpoint}");
             SendData(messageToHost, server.NatEndpoint);
         }
     }

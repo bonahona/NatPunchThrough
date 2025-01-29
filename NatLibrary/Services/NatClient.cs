@@ -39,11 +39,11 @@ namespace NatLibrary.Services
         public async Task Listen(string name) {
             await Console.Out.WriteLineAsync($"{name} avaiting endpoint...");
 
-            while (_socket.LocalEndPoint == null) {
+            while (_socket.LocalEndPoint == null ) {
                 await Task.Delay(1000);
             }
 
-            await Console.Out.WriteLineAsync("Start client listen");
+            await Console.Out.WriteLineAsync($"Start {name} listen");
             while (true) {
                 try {
                     await WaitForMessage();
